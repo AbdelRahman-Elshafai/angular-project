@@ -1,0 +1,28 @@
+
+<div id="id02"  style="width:30%; margin:0 auto;">
+  <form class="modal-content animate" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="imgcontainer">
+      <img src="assets/images/register.png" alt="Avatar" class="avatar">
+    </div>
+    <div class="container">
+      <label *ngIf="registerForm.get('userName')"><b>Username</b></label>
+      <input type="text" name="userName" placeholder="Enter Password" formControlName="userName">
+      <span *ngIf="registerForm.get('userName').touched  && !registerForm.get('userName').valid" class="text-center text-danger font-weight-bold">
+        User name is required and must be more than 3 characters<br><br>
+      </span>
+      <label *ngIf="registerForm.get('password')"><b>Password</b></label>
+      <input type="password" name="password" placeholder="Enter Password" formControlName="password">
+      <span *ngIf="registerForm.get('password').touched  && !registerForm.get('password').valid" class="text-danger text-center font-weight-bold">
+        password is required and must be more than 3 characters<br><br>
+      </span>
+      <label *ngIf="registerForm.get('confirm_password')"><b>Confirm Password</b></label>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" formControlName="confirm_password">
+      <span *ngIf="registerForm.get('confirm_password').touched  && !registerForm.get('confirm_password').valid" class="text-danger text-center font-weight-bold">
+        
+        Passwords must match
+      </span>
+      <button text="login" type="submit" name="login" class="button" value="submit">login</button>
+    </div>    
+  </form>
+</div>
+

@@ -1,0 +1,19 @@
+<li class="col-lg-3 border border-light rounded text-center m-3">
+  <h5>{{product.name}}</h5>
+  <a [routerLink]="['/products/', product.id]">
+    <img [src]="product.image" alt="" />
+  </a>
+    <div class="caption">
+     
+      <h4>
+        <button [routerLink]="['/products/', product.id]" type="button" class="btn">$ {{product.price}}</button> <br>
+        <button class="btn btn-info" style="font-size:24px"(click)="onCart()" [disabled]="product.purchased">
+          <i class="fa fa-shopping-cart" style="font-size:24px"></i>
+        </button>
+        <button class="btn btn-danger m-1" (click)="onWish()" [disabled]="product.wished">
+          <i class="fa fa-heart" style="font-size:24px"></i>
+        </button>
+        
+      </h4>
+    </div>
+</li>

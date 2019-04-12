@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="my-4">{{product.name}}
+  </h1>
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" [src]="product.image" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Product Description</h3>
+      <p>{{ product.description }}</p>
+      <h3 class="my-3">Product Details</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">$ {{ product.price }}</li>
+        <li class="list-group-item">{{ product.category }}</li>
+      </ul><br>
+      <button class="card-link btn btn-dark" (click)="onCart()" [disabled]="product.purchased">
+        <i class="fa fa-shopping-cart"></i>
+        Add To Cart
+      </button>
+      <button class="card-link btn btn-danger" (click)="onWish()" [disabled]="product.wished">
+        <i class="fa fa-heart"></i>
+      </button>
+    </div>
+
+  </div>
+  
+ 
+</div>
+

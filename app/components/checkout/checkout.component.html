@@ -1,0 +1,46 @@
+<!-- <ul>
+  <ng-container *ngFor="let product of products">
+    <li>{{ product.price }}</li>
+  </ng-container>
+</ul>
+<div>
+  {{ totalCost }}
+</div> -->
+<div class="container">
+  <table id="cart" class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th style="width:100%"> Product </th>
+        <th> Price </th>
+        <th> Delete </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let product of products">
+        <tr>
+          <td data-th="Product">
+            <div class="row">
+              <div class="col-sm-2"><img [src]="product.image" alt="product-image" class="img-responsive product-image" />
+              </div>
+              <div class="col-sm-10">
+                <h4 class="nomargin">{{product.name}}</h4>
+                <p>{{product.description}}</p>
+              </div>
+            </div>
+          </td>
+          <td data-th="Price" style="font-size:25px;">{{ product.price }}$</td>
+          <td class="actions" data-th="">
+            <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)"><i class="far fa-trash-alt">X</i></button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><a routerLink="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+        <td colspan="2" class="hidden-xs"></td>
+        <td class="hidden-xs text-center"><strong>Total ${{ totalCost }}</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

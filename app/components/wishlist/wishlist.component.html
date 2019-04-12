@@ -1,0 +1,35 @@
+<div data-toggle="modal" data-target="#wishlist-products">
+    <a class="nav-link" style="font-size:25px;">
+        <i class="fa fa-heart">
+            <span class="mt-2" style="font-size:20px;"> {{wishlistCounter}}</span>
+        </i>
+    </a>
+</div>
+
+<div class="modal fade" id="wishlist-products" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="wishlist-title">Your Wishlist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let product of wishlist_products">
+                        <img [src]="product.image" alt="product-image" class="wishlist-image">
+                        <h5>{{product.name}}</h5>
+                        <button class="btn btn-dark" (click)="addToCart(product)"><i class="fa fa-shopping-cart"></i></button>
+                        <button class="btn btn-danger" (click)="deleteProduct(product.id)">X</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

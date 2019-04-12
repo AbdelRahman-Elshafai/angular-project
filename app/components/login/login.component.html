@@ -1,0 +1,23 @@
+
+<div id="id02"  style="width:30%; margin:0 auto;">
+  <form class="modal-content animate" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="imgcontainer">
+      <img src="assets/images/login.png" alt="Avatar" class="avatar">
+    </div>
+    <div class="container">
+       <span class="text-danger text-center font-weight-bold">{{errorMessage}}</span><br>
+      <label *ngIf="profileForm.get('userName')"><b>Username</b></label>
+      <input type="text" name="userName" placeholder="Enter Password" formControlName="userName">
+      <span *ngIf="profileForm.get('userName').touched  && !profileForm.get('userName').valid" class="text-center text-danger font-weight-bold">
+        User name is required and must be more than 3 characters<br><br>
+      </span>
+      <label *ngIf="profileForm.get('password')"><b>Password</b></label>
+      <input type="password" name="password" placeholder="Enter Password" formControlName="password">
+      <span *ngIf="profileForm.get('password').touched  && !profileForm.get('password').valid" class="text-danger text-center font-weight-bold">
+        password is required and must be more than 3 characters<br><br>
+      </span>
+      <button text="login" type="submit" name="login" class="button" value="submit">login</button>
+    </div>    
+  </form>
+</div>
+

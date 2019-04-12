@@ -1,0 +1,8 @@
+<div id='products-container' class="container">
+    <ul>
+      <app-product-item 
+        *ngFor="let product of products"
+        [product]="product"  
+       ></app-product-item>
+    </ul>
+</div>

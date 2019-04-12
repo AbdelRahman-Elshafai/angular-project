@@ -1,0 +1,35 @@
+<div data-toggle="modal" data-target="#cart-products">
+    <a class="nav-link" style="font-size:25px;">
+        <i class="fa fa-shopping-cart" >
+            <span class="mt-1"> {{ cartCounter }}</span>
+        </i>
+    </a>
+</div>
+
+<div class="modal fade" id="cart-products" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cart-title">Your Cart <i class="fa fa-shopping-cart" ></i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                        *ngFor="let product of cart_products">
+                        <img [src]="product.image" alt="product-image" class="cart-image">
+                        <h5>{{product.name}}</h5>
+                        <span>$ {{product.price}}</span>
+                        <button class="btn btn-danger" (click)="deleteProduct(product.id)">x</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a routerLink="checkout" id="checkout" type="button" class="btn btn-success" data-dismiss="modal"><i class="fas fa-coins"></i> Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>

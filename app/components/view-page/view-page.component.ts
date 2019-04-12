@@ -14,17 +14,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class ViewPageComponent implements OnInit {
   public product;
   public product_id: any;
-  
-  
-  
-
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private productsService: ProductsService,
-    private wishlistService: WishlistService,
-    private cartService: CartService
-    ) { }
+  constructor(private router: Router, private route: ActivatedRoute,private productsService: ProductsService,private wishlistService: WishlistService,private cartService: CartService) { }
 
   ngOnInit() {
     let products = this.productsService.getProducts();
@@ -38,14 +28,15 @@ export class ViewPageComponent implements OnInit {
   
 
   }
-  onWish() {
-    this.wishlistService.addToWishlist(this.product);
-  }
   onCart() {
     this.cartService.addToCart(this.product);
   }
   onSwitch(product){
     this.product = product;
   }
+  onWish() {
+    this.wishlistService.addToWishlist(this.product);
+  }
+  
 
 }

@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginService } from './services/login.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ViewPageComponent,
     CheckoutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

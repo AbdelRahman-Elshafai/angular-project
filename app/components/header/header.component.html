@@ -1,12 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
 	<a class="navbar-brand" routerLink="/">e-commerce</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-
+	
+		<span class="nav-item" style="color:white;"> {{user.userName}}</span>
+	
+  
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
+			<ul class="navbar-nav ml-auto">
+		
+					<li *ngIf="user.loggedIn ==1" class="nav-item" id="cart">
+						<app-shopping-cart ></app-shopping-cart>
+					</li>
+					<li *ngIf="user.loggedIn ==1" class="nav-item" id="wishlist">
+						<app-wishlist ></app-wishlist>
+					</li>
+					<li *ngIf="user.loggedIn ==0"class="nav-item" id="login">
+						<a class="nav-link" style="font-size:25px;" routerLink="/login">
+							<i class="fa fa-user mt-1"></i> Login
+						</a>
+					</li>
+					<li *ngIf="user.loggedIn ==0"class="nav-item" id="register">
+						<a class="nav-link" style="font-size:25px;" routerLink="/register">
+							<i class="fa fa-user mt-1"></i> register
+						</a>
+					</li>
+					<li *ngIf="user.loggedIn ==1"class="nav-item" id="logout">
+						<a class="nav-link" style="font-size:25px;" (click)="logout($event)">
+							<i class="fa fa-user mt-1"></i> Logout
+						</a>
+					</li>
+				</ul>
+		<!-- <ul class="navbar-nav mr-auto"> -->
 			<!-- <li class="nav-item" routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{exact:
 					true}">
 				<a class="nav-link" routerLink="/" >Home</a>
@@ -16,9 +39,9 @@
 					true}">
 				<a class="nav-link" routerLink="checkout">Checkout</a>
 			</li> -->
-		</ul>
+		<!-- </ul> -->
 	</div>
-	<ul class="navbar-nav ml-auto">
+	<!-- <ul class="navbar-nav ml-auto">
 		
 		<li *ngIf="user.loggedIn ==1" class="nav-item" id="cart">
 			<app-shopping-cart ></app-shopping-cart>
@@ -41,5 +64,5 @@
 				<i class="fa fa-user mt-1"></i> Logout
 			</a>
 		</li>
-	</ul>
+	</ul> -->
 </nav>

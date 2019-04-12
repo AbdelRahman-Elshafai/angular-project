@@ -1,5 +1,5 @@
 <li class="col-3 border border-light rounded text-center m-3 b-shadow">
-  <h5>{{product.name}}</h5>box-shadow: 8px 8px 2px #8080807
+  <h5>{{product.name}}</h5>
   <a [routerLink]="['/products/', product.id]">
     <img [src]="product.image" alt="" />
   </a>
@@ -7,7 +7,7 @@
      
       <h4>
         <button [routerLink]="['/products/', product.id]" type="button" class="btn">$ {{product.price}}</button> <br>
-        <button class="btn btn-info" style="font-size:24px"(click)="onCart()" [disabled]="product.purchased">
+        <button class="btn btn-info" style="font-size:24px"(click)="onCart()" >
           <i class="fa fa-shopping-cart" style="font-size:24px"></i>
         </button>
         <button class="btn btn-danger m-1" (click)="onWish()" [disabled]="product.wished">

@@ -16,7 +16,13 @@ export class CartService {
     this.products.push(product);
     this.observable.next(product.id);
     product.purchased = true;
-    localStorage.setItem(`${product.id}-purchase`, "true");
+    if(localStorage.getItem(`${product.id}-purchase`))
+    { let count=parseInt(localStorage.getItem(`${product.id}-purchase`))+1;
+      console.log(count)
+      localStorage.setItem(`${product.id}-purchase`, count.toString());
+    }else{
+    localStorage.setItem(`${product.id}-purchase`, "1");
+    }
   }
 
   getCart() {
